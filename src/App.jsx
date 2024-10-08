@@ -39,16 +39,10 @@ function App() {
           return <div key={todo} className="todo flex w-1/4 my-2 justify-between">
             <div className={item.iscompleted?"":"line-through"}>{item.todo}</div>
             <div className="buttons">
-            <button
-              onClick={handleEdit}
-              className="bg-orange-400 rounded-md p-2 py-1 mx-1 text-white text-sm hover:font-bold"
-            >
+            <button onClick={handleEdit} className="bg-orange-400 rounded-md p-2 py-1 mx-1 text-white text-sm hover:font-bold">
               Edit
             </button>
-            <button
-              onClick={handleDelete}
-              className="bg-orange-400 rounded-md p-2 py-1 mx-1 text-white text-sm hover:font-bold"
-            >
+            <button onClick={handleDelete} className="bg-orange-400 rounded-md p-2 py-1 mx-1 text-white text-sm hover:font-bold">
               Delete
             </button>
             </div>

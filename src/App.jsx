@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import Navbar from "./components/navbar";
 import { v4 as uuidv4 } from 'uuid';
-
+import { FaEdit } from "react-icons/fa";
+import { AiFillDelete } from "react-icons/ai";
 
 function App() {
   const [todo, setTodo] = useState("");
@@ -70,36 +71,36 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto my-5 rounded-xl p-5 w-1/2
-     bg-orange-100 min-h-[80vh]">
+      <div className="md:container md:mx-auto my-5 m-1 rounded-xl p-5 md:w-1/2
+     bg-orange-200 min-h-[80vh]">
       <h1 className="font-bold text-xl text-center">TaskIt - Manage your tasks</h1>
         <div className="addtodo flex flex-col gap-2 my-5">
           <h2 className="text-lg font-bold">Add To-Do</h2>
           <input onChange={handleChange} value={todo} type="text" id="in" className="w-full p-1 px-3 rounded-xl" />
           <button
             onClick={handleAdd} disabled={todo.length<=3}
-            className="bg-orange-400 disabled:bg-orange-200 rounded-md p-2 py-1 mx-6  text-white text-sm hover:font-bold"
+            className="bg-orange-400 disabled:bg-orange-300 rounded-md p-2 py-1 mx-6  text-white text-sm hover:font-bold"
           >
             Add
           </button>
         </div>
         <input onChange={toggleFinished} type="checkbox" checked={showFinished} name="" id="" />Show Finished
         <h2 className="text-lg font-bold">Your ToDos</h2>
-        <div className="todos">
+        <div className="todos w-full">
           {todos.length===0 && <div className="my-2">No Todos to display</div>}
           {todos.map(item=>{
 
-          return (showFinished || !item.iscompleted) && <div key={item.id} className="todo flex w-1/4 my-2 justify-between">
+          return (showFinished || !item.iscompleted) && <div key={item.id} className="todo flex  my-2 justify-between">
             <div className="flex gap-5">
             <input onChange={handleCheckbox} type="checkbox" checked={item.iscompleted} name={item.id} id="" />
             <div className={item.iscompleted?"line-through":""}>{item.todo}</div>
             </div>
             <div className="buttons flex h-full">
             <button onClick={(e)=>{handleEdit(e,item.id)}}className="bg-orange-400 rounded-md p-2 py-1 mx-1 text-white text-sm hover:font-bold">
-              Edit
+              <FaEdit/>
             </button>
             <button onClick={(e)=>{handleDelete(e,item.id)}} className="bg-orange-400 rounded-md p-2 py-1 mx-1 text-white text-sm hover:font-bold">
-              Delete
+              <AiFillDelete/>
             </button>
             </div>
           </div>

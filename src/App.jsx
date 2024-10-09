@@ -73,19 +73,21 @@ function App() {
       <Navbar />
       <div className="md:container md:mx-auto my-5 m-1 rounded-xl p-5 md:w-1/2
      bg-orange-200 min-h-[80vh]">
-      <h1 className="font-bold text-xl text-center">TaskIt - Manage your tasks</h1>
+      <h1 className="font-bold text-3xl text-center">TaskIt - Manage your tasks</h1>
         <div className="addtodo flex flex-col gap-2 my-5">
-          <h2 className="text-lg font-bold">Add To-Do</h2>
+          <h2 className="text-xl font-bold">Add To-Do</h2>
+          <div className="flex">
           <input onChange={handleChange} value={todo} type="text" id="in" className="w-full p-1 px-3 rounded-xl" />
           <button
             onClick={handleAdd} disabled={todo.length<=3}
-            className="bg-orange-400 disabled:bg-orange-300 rounded-md p-2 py-1 mx-6  text-white text-sm hover:font-bold"
+            className="bg-orange-400 disabled:bg-orange-300 rounded-md p-2 py-1 mx-2  text-white text-sm hover:font-bold"
           >
             Add
           </button>
+          </div>
         </div>
-        <input onChange={toggleFinished} type="checkbox" checked={showFinished} name="" id="" />Show Finished
-        <h2 className="text-lg font-bold">Your ToDos</h2>
+        <input onChange={toggleFinished} type="checkbox" checked={showFinished} name="" id=""  />Show Finished
+        <h2 className="text-xl font-bold my-2">Your ToDos</h2>
         <div className="todos w-full">
           {todos.length===0 && <div className="my-2">No Todos to display</div>}
           {todos.map(item=>{

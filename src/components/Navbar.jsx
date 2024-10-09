@@ -3,7 +3,7 @@ import React from 'react'
 const Navbar = () => {
   return (
     <div>
-      <nav className="flex justify-between py-2 bg-orange-400 text-white">
+      <nav className="flex justify-between md:justify-around py-2 bg-orange-400 text-white">
       <div className="logo p-3">
         <span className="font-bold text-xl">TaskIt</span>
       </div>

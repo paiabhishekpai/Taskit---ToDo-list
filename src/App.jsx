@@ -7,7 +7,18 @@ function App() {
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState([]);
 
- 
+  useEffect(() => {
+    let todostring = localStorage.getItem("todos");
+    if(todostring){
+      let todos = JSON.parse(localStorage.getItem("todos"))
+      setTodos(todos)
+    }
+  }, [])
+  
+
+  const saveToLS = ()=>{
+    localStorage.setItem("todos", JSON.stringify(todos))
+  }
 
   const handleAdd = () => {
     setTodos([...todos, {id: uuidv4(), todo, iscompleted:false}])

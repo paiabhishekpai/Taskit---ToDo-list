@@ -70,11 +70,12 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto my-5 rounded-xl p-5
+      <div className="container mx-auto my-5 rounded-xl p-5 w-1/2
      bg-orange-100 min-h-[80vh]">
-        <div className="addtodo my-5">
+      <h1 className="font-bold text-xl text-center">TaskIt - Manage your tasks</h1>
+        <div className="addtodo flex flex-col gap-2 my-5">
           <h2 className="text-lg font-bold">Add To-Do</h2>
-          <input onChange={handleChange} value={todo} type="text" id="in" className="w-1/2" />
+          <input onChange={handleChange} value={todo} type="text" id="in" className="w-full p-1 px-3 rounded-xl" />
           <button
             onClick={handleAdd} disabled={todo.length<=3}
             className="bg-orange-400 disabled:bg-orange-200 rounded-md p-2 py-1 mx-6  text-white text-sm hover:font-bold"
